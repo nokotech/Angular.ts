@@ -25,16 +25,17 @@ gulp.task('es6', function () {
 });
 
 gulp.task('sass', function(){
-    gulp.src('./src/scss/*.scss')
+    gulp.src('./src/sass/*.scss')
       .pipe(sass())
-      .pipe(gulp.dest('./prod/css'));
+      .pipe(gulp.dest('./dest/css'));
   });
 
 gulp.task('copy', () => {
     gulp.src('./src/index.html').pipe(gulp.dest("./dest"));
     gulp.src('./src/view/**/*.html').pipe(gulp.dest("./dest/pages"));
-    gulp.src('./src/lib/**/*.js').pipe(gulp.dest("./dest/js"));
-    gulp.src('./src/lib/**/*.css').pipe(gulp.dest("./dest/css"));
+    gulp.src('./src/lib/js/**/*').pipe(gulp.dest("./dest/js"));
+    gulp.src('./src/lib/css/**/*').pipe(gulp.dest("./dest/css"));
+    gulp.src('./src/lib/fonts/**/*').pipe(gulp.dest("./dest/fonts"));
 });
 
 gulp.task('watch', () => {

@@ -1,9 +1,13 @@
-// import angular from 'angular';
+import angular from 'angular';
+import uiRouter from 'angular-ui-router';
+import material from 'angular-material';
+
 import TopController from "./controllers/TopController.es6";
 import HomeController from "./controllers/HomeController.es6";
 import BodyController from "./controllers/BodyController.es6";
 
-const main = angular.module('app', ['ui.router']);
+//const main = angular.module('app', ['ui.router']);
+const main = angular.module('app', [uiRouter, material]);
 const _state = (name) => { return { url: '/'+name, templateUrl: 'pages/'+name+'.html', controller: name+'Controller' }};
      
 // Router setting
@@ -18,3 +22,4 @@ main.config(['$stateProvider', '$urlRouterProvider', (stateProvider, urlRouterPr
 main.controller('topController', TopController);
 main.controller('homeController', HomeController);
 main.controller('bodyController', BodyController);
+
