@@ -1,13 +1,13 @@
 const graphql = require('graphql');
 const Type = require('../type/index.js');
 
-class GetUserType extends graphql.GraphQLObjectType {
+class GetScheduleType extends graphql.GraphQLObjectType {
     constructor() {
         super({
             name: 'Query',
             fields: {
             user: {
-                type: Type.User,
+                type: Type.Schedule,
                 args: {
                 id: { type: graphql.GraphQLString }
                 },
@@ -17,9 +17,9 @@ class GetUserType extends graphql.GraphQLObjectType {
         });
     }
 }
-class GetUserQuery extends graphql.GraphQLSchema{
+class GetScheduleQuery extends graphql.GraphQLSchema{
     constructor() {
-        super({query: new GetUserType()})
+        super({query: new GetScheduleType()})
     }
 }
-module.exports = new GetUserQuery();
+module.exports = new GetScheduleQuery();

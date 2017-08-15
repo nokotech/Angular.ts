@@ -1,0 +1,36 @@
+<div class="row">
+    <form class="col s12">
+
+        <a ng-click="regist()" id="regist_btn" class="btn-floating btn-large waves-effect waves-light green darken-3 right">
+            <i class="material-icons">add</i>
+        </a>
+
+        <div class="input-field col s12">
+            <input id="schedule_name" type="text" class="validate" ng-model="resistData.name">
+            <label for="schedule_name">Schedule Name</label>
+        </div>
+
+        <div class="input-field col s9">
+            <label for="datepicker">start date</label>
+            <input type="text" id="datepicker" class="datepicker" ng-model="resistData.startDate">
+        </div>
+        <div class="input-field col s3">
+            <label for="timepicker">start time</label>
+            <input type="text" id="timepicker" class="timepicker" ng-model="resistData.startTime">
+        </div>
+        <div class="input-field col s9">
+            <label for="datepicker">end date</label>
+            <input type="text" id="datepicker" class="datepicker" ng-model="resistData.endDate">
+        </div>      
+        <div class="input-field col s3">
+            <label for="timepicker">end time</label>
+            <input type="text" id="timepicker" class="timepicker" ng-model="resistData.endTime">
+        </div>
+
+        <div class="input-field col s12">
+            <textarea id="summary" class="materialize-textarea" ng-model="resistData.summary"></textarea>
+            <label for="summary">Summary</label>
+        </div>
+        
+    </form>
+</div>

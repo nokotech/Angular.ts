@@ -1,14 +1,22 @@
 <div class="content top">
-    <h1>{{name}}</h1>
-    <table>
-        <tr ng-repeat="d in data">
-            <td class="week1">{{ d.week1 }}</td>
-            <td class="week2">{{ d.week2 }}</td>
-            <td class="week3">{{ d.week3 }}</td>
-            <td class="week4">{{ d.week4 }}</td>
-            <td class="week5">{{ d.week5 }}</td>
-            <td class="week6">{{ d.week6 }}</td>
-            <td class="week7">{{ d.week7 }}</td>
-        </tr>
-    </table>
+    
+    <div id="calendar-col" class="z-depth-2">
+        <div id='calendar'></div>
+        <ul class="collapsible" data-collapsible="accordion">
+            <li>
+                <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+        </ul>
+
+    </div>
+
 </div>

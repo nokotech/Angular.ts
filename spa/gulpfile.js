@@ -5,7 +5,8 @@ const source = require('vinyl-source-stream')
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const babel = require('gulp-babel');
-const uglify = require('gulp-uglify')
+const watch = require("gulp-watch");
+const uglify = require('gulp-uglify');
 const plumber = require('gulp-plumber');
 const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create()
@@ -39,9 +40,10 @@ gulp.task('copy', () => {
 });
 
 gulp.task('watch', () => {
-    gulp.watch('./src/sass/**/*.scss', ['sass']);
-    gulp.watch('./src/es6/**/*.es6', ['es6']);
-    gulp.watch('./src/**/*', ['copy']);
+    watch(['./src/sass/**'], (evt) => gulp.start("sass"));
+    watch(['./src/es6/**'], (evt) => gulp.start("es6"));
+    watch(['./src/lib/**'], (evt) => gulp.start("copy"));
+    watch(['./src/**/*.html'], (evt) => gulp.start("copy"));
 });
 
 gulp.task('default', ['es6', 'sass', 'copy', 'watch']);

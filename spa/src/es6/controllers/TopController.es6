@@ -6,11 +6,10 @@ export default class TopController extends BaseController {
     constructor($scope) {
         super($scope, "topController");
         $scope.name = "Top Page!!!";
-        $scope.data = [
-            new Calender().data,
-            new Calender().data,
-            new Calender().data
-        ];
-        console.log($scope.data);
+    }
+
+    ready($scope) {
+        $('.collapsible').collapsible()
+        $('#calendar').fullCalendar();
     }
 }

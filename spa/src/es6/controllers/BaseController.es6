@@ -8,6 +8,11 @@ export default class BaseController {
     constructor($scope, name) {
         console.log(name);
         this._name = name;
+        $(document).ready(() => this.ready($scope));
+    }
+
+    ready($scope) {
+        console.log( this.name + "called ready." );
     }
 
 }

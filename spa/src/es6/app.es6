@@ -3,7 +3,7 @@ import uiRouter from 'angular-ui-router';
 import material from 'angular-material';
 
 import TopController from "./controllers/TopController.es6";
-import HomeController from "./controllers/HomeController.es6";
+import RegistrationController from "./controllers/RegistrationController.es6";
 import BodyController from "./controllers/BodyController.es6";
 
 //const main = angular.module('app', ['ui.router']);
@@ -15,11 +15,10 @@ main.config(['$stateProvider', '$urlRouterProvider', (stateProvider, urlRouterPr
     urlRouterProvider.otherwise('/top');
     stateProvider
         .state('top', _state("top"))
-        .state('home', _state("home"));
+        .state('registration', _state("registration"));
 }]);
     
 // Controller
 main.controller('topController', TopController);
-main.controller('homeController', HomeController);
+main.controller('registrationController', RegistrationController);
 main.controller('bodyController', BodyController);
-

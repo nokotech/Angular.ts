@@ -1,5 +1,5 @@
-const GetUserQuery = require("./GetUserQuery.js");
+const GetScheduleType = require("./GetScheduleType.js");
 
 module.exports = {
-    GetUserQuery
+    GetScheduleType
 };

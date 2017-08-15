@@ -7,7 +7,7 @@ const Schema = require('./schema/index.js');
 
 // Import data
 const data = require('./data/data.json');
-const schema = Schema.GetUserQuery;
+const schema = Schema.GetScheduleType;
 
 // express setting
 const app = express();
