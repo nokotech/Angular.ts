@@ -4,7 +4,7 @@ class Schedule extends graphql.GraphQLObjectType {
 
     constructor() {
         super({
-            name: 'Schedule',
+            name: 'schedule',
             fields: {
                 name: { type: graphql.GraphQLString },
                 startTime: { type: graphql.GraphQLString },

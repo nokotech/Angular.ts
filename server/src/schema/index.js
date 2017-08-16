@@ -1,5 +1,5 @@
-const GetScheduleType = require("./GetScheduleType.js");
+const GetScheduleSchema = require("./GetScheduleSchema.js");
 
 module.exports = {
-    GetScheduleType
+    GetScheduleSchema
 };
