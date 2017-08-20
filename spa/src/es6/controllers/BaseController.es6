@@ -15,5 +15,9 @@ export default class BaseController {
         console.log( this.name + "called ready." );
     }
 
+    render($scope) {
+        $scope.$apply();
+    }
+
 }
 BaseController.$inject = ['$scope'];

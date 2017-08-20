@@ -7,7 +7,8 @@ const setting = {
         today: 'Today',
         clear: 'Clear',
         close: 'Ok',
-        closeOnSelect: false
+        closeOnSelect: false,
+        format: 'yyyy-mm-dd'  
     },
 
     // 時間ピッカー

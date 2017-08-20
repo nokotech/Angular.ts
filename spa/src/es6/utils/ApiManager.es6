@@ -1,4 +1,4 @@
-import sa from "superagent"
+import api from "superagent"
 
 class ApiManager {
 
@@ -6,12 +6,16 @@ class ApiManager {
 
     }
 
-    utilGet() {
-
+    utilGet(url, param = {}) {
+        return new Promise((resolve, reject) => {
+            api.get(url).query(param).end((err, res) => !err ? resolve(res.body) : reject(err));
+        });
     }
 
-    utilPost() {
-
+    utilPost(url, param = {}) {
+        return new Promise((resolve, reject) => {
+            api.post(url).send(param).end((err, res) => !err ? resolve(res.body) : reject(err));
+        });
     }
 
 }

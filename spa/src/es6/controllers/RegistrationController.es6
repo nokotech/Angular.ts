@@ -1,5 +1,6 @@
 import BaseController from "./BaseController.es6";
 import setting from "../constants/setting.es6";
+import {Api} from "../utils/index.es6";
 
 export default class RegistrationController extends BaseController {
 
@@ -24,6 +25,13 @@ export default class RegistrationController extends BaseController {
     }
 
     regist($event, $scope) {
-        console.log($scope.resistData);
+        const data =  {
+            name: $scope.resistData.name,
+            startTime: $scope.resistData.startDate + " " + $scope.resistData.startTime,
+            endTime: $scope.resistData.endDate + " " + $scope.resistData.endTime,
+            summary: $scope.resistData.summary
+        };
+        console.log(data);
+        Api.utilPost("http://localhost:3000/RegistScheduleQuery", data);
     }
 }

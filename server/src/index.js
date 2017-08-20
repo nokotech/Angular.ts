@@ -12,12 +12,10 @@ const Schema = require('./schema/index.js');
 const db = new sqlite3.Database('db.sqlite3');
 // db.run("DROP TABLE IF EXISTS schedule");
 // db.run("CREATE TABLE if not exists schedule (name TEXT, startTime TEXT, endTime TEXT, summary TEXT)");
-// db.run("INSERT into schedule(name, startTime, endTime, summary) VALUES ('name1','startTime1','endTime1','summary1')");
+// db.run("INSERT into schedule(name, startTime, endTime, summary) VALUES ('name1','2017-08-10 18:00','2017-08-15 19:00','summary1')");
 // db.run("INSERT into schedule(name, startTime, endTime, summary) VALUES ('name2','startTime2','endTime2','summary2')");
 // db.run("INSERT into schedule(name, startTime, endTime, summary) VALUES ('name3','startTime3','endTime3','summary3')");
-db.all("SELECT * from schedule", (err,rows) => {
-    // console.log(rows);
-});
+// db.all("SELECT * from schedule", (err,rows) => console.log(rows));
 
 // const data = require('./data/data.json');
 const schema = Schema.GetScheduleSchema;
@@ -48,11 +46,14 @@ app.get('/GetScheduleQuery', (req, res) => {
 app.post('/RegistScheduleQuery', (req, res) => {
     res.header('Content-Type', 'application/json; charset=utf-8');
     console.log(req.body);
-    const name = "";
-    const startTime = "";
-    const endTime = "";
-    const summary = "";
-    db.run(`INSERT into schedule(name, startTime, endTime, summary) VALUES (${name}, ${startTime}, ${endTime}, ${summary})`);
+    const body = req.body || {};
+    const name = body.name || "";
+    const startTime = body.startTime || "";
+    const endTime = body.endTime || "";
+    const summary = body.summary || "";
+    db.run(
+        "INSERT into schedule(name, startTime, endTime, summary)"
+            +  "VALUES ('"+ name + "', '" + startTime + "', '" + endTime + "', '" + summary + "')");
     graphql.graphql(schema, `{ GetScheduleQuery {name, startTime, endTime, summary} }`, {db}).then((result) => {
         res.send(result);
     });
